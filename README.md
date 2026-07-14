@@ -1,6 +1,6 @@
 # Library Rentals Demand Forecasting | ONNX Inference Service
 
-![Python](https://img.shields.io/badge/Python-3.11-blue) ![Flask](https://img.shields.io/badge/Flask-3.x-green) ![ONNX](https://img.shields.io/badge/ONNX-Runtime-1.17-orange) ![Docker](https://img.shields.io/badge/Docker-Containerized-blue)
+![Python](https://img.shields.io/badge/Python-3.11-blue) ![Flask](https://img.shields.io/badge/Flask-3.x-green) ![ONNX](https://img.shields.io/badge/ONNX-1.17-orange) ![Docker](https://img.shields.io/badge/Docker-Containerized-blue)
 
 ## Executive Summary
 This repository implements a compact, production-oriented inference service for library rental demand forecasting. A regression model trained in a notebook is exported to ONNX and served through a Flask API. The project demonstrates a focused workflow for taking a tabular model from experimentation to a simple serving layer.

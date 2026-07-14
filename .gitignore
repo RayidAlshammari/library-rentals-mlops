@@ -1,0 +1,10 @@
+# Ignore the instructional notebook
+Notebooks/Library_Rentals_MLOps_Followup_Explained.ipynb
+
+# Ignore Mac system files
+.DS_Store
+
+# Ignore Python cache & virtual environment
+__pycache__/
+*.pyc
+.venv/

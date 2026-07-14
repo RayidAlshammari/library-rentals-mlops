@@ -6,10 +6,8 @@ import os
 
 app = Flask(__name__)
 
-# تحميل النموذج
 session = rt.InferenceSession("Models/model.onnx")
 
-# قائمة الـ 44 عموداً التي يتوقعها المودل
 EXPECTED_COLUMNS = [
     'Hour', 'Temperature_C', 'Humidity_pct', 'Wind_Speed_ms', 'Visibility_m', 
     'Solar_Radiation_MJm2', 'Rainfall_mm', 'Month', 'Day', 'Is_Peak_Hour', 
@@ -32,16 +30,12 @@ def predict():
         data = request.get_json()
         df = pd.DataFrame([data])
         
-        # 1. هندسة الميزات (حساب الـ Interaction)
         df['Temp_Humidity_Interaction'] = df['Temperature_C'] * df['Humidity_pct']
         
-        # 2. إعادة الترتيب وملء الأعمدة المفقودة بـ 0
         df = df.reindex(columns=EXPECTED_COLUMNS, fill_value=0)
         
-        # 3. تحويل إلى مصفوفة رقمية
         input_data = df.values.astype(np.float32)
         
-        # 4. التنبؤ
         input_name = session.get_inputs()[0].name
         prediction = session.run(None, {input_name: input_data})[0]
         
